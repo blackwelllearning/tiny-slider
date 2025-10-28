@@ -722,10 +722,6 @@ export var tns = function(options) {
       addClass(item, 'tns-item');
       if (!item.id) { item.id = slideId + '-item' + i; }
       if (!carousel && animateNormal) { addClass(item, animateNormal); }
-      setAttrs(item, {
-        'aria-hidden': 'true',
-        'tabindex': '-1'
-      });
     });
 
     // ## clone slides
@@ -1940,17 +1936,12 @@ export var tns = function(options) {
         }
       // hide slides
       } else {
-        if (!hasAttr(item, 'aria-hidden')) {
-          setAttrs(item, {
-            'aria-hidden': 'true',
-            'tabindex': '-1'
-          });
           removeClass(item, slideActiveClass);
-        }
       }
     });
   }
 
+  
   // gallery: update slide position
   function updateGallerySlidePositions () {
     var l = index + Math.min(slideCount, items);
